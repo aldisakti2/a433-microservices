@@ -33,10 +33,6 @@ services:
     #Docker Image yang digunakan
     image: mongo:3
 
-    #Publish Port 27017 di container ke Port 27019 (External)
-    ports:
-      - "27019:27017"
-
     #Bind Mount Docker Volume bernama "app-db" ke direktor "/data/db" di container
     volumes:
       - "app-db:/data/db"

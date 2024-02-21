@@ -1,0 +1,54 @@
+#Versi Docker Compose Pakai Versi 3.8
+version: '3.8'
+
+#Services Yang Dibuat
+services:
+
+  #Service Pertama Bernama item-app
+  item-app:
+
+    #Deklarasi Nama Container
+    container_name: item-app
+
+    #Spesifikasi Informasi Build Image bila Image yang dipakai belum tersedia
+    build:
+      #Context lokasi Dockerfile berada di direktori saat ini
+      context: .
+
+    #Docker Image yang digunakan
+    image: ghcr.io/aldisakti2/item-app:v1
+
+    #Publish Port 8080 di container ke Port 80 (External)
+    ports:
+      - "80:8080"
+
+    #Restart Policy "on-failure" agar container otomatis restart ketika gagal
+    restart: on-failure
+
+    #Menunggu service "item-db" siap terlebih dulu
+    depends_on:
+      - item-db
+
+  #Service Kedua Bernama item-db
+  item-db:
+
+    #Deklarasi Nama Container
+    container_name: item-db
+
+    #Docker Image yang digunakan
+    image: mongo:3
+
+    #Publish Port 27017 di container ke Port 27017 (External)
+    ports:
+      - "27017:27017"
+
+    #Bind Mount Docker Volume bernama "app-db" ke direktor "/data/db" di container
+    volumes:
+      - "app-db:/data/db"
+
+    #Restart Policy "on-failure" agar container otomatis restart ketika gagal
+    restart: on-failure
+
+#Membuat Docker Volume bernama "app-db"
+volumes:
+  app-db:

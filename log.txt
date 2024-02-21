@@ -1,0 +1,44 @@
+Attaching to item-app, item-db
+[33mitem-db     |[0m 2024-02-21T04:49:56.778+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=1b26fdc10871
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten] db version v3.6.23
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten] modules: none
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten] build environment:
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+[33mitem-db     |[0m 2024-02-21T04:49:56.779+0000 I CONTROL  [initandlisten]     distarch: x86_64
+[33mitem-db     |[0m 2024-02-21T04:49:56.781+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+[33mitem-db     |[0m 2024-02-21T04:49:56.781+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+[33mitem-db     |[0m 2024-02-21T04:49:56.782+0000 I STORAGE  [initandlisten] 
+[33mitem-db     |[0m 2024-02-21T04:49:56.782+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+[33mitem-db     |[0m 2024-02-21T04:49:56.782+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+[33mitem-db     |[0m 2024-02-21T04:49:56.782+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=478M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+[33mitem-db     |[0m 2024-02-21T04:49:58.664+0000 I STORAGE  [initandlisten] WiredTiger message [1708490998:664293][1:0x7f4ad66e2a40], txn-recover: Set global recovery timestamp: 0
+[33mitem-db     |[0m 2024-02-21T04:49:58.721+0000 I CONTROL  [initandlisten] 
+[33mitem-db     |[0m 2024-02-21T04:49:58.722+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+[33mitem-db     |[0m 2024-02-21T04:49:58.722+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+[33mitem-db     |[0m 2024-02-21T04:49:58.722+0000 I CONTROL  [initandlisten] 
+[33mitem-db     |[0m 2024-02-21T04:49:58.723+0000 I CONTROL  [initandlisten] 
+[33mitem-db     |[0m 2024-02-21T04:49:58.723+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+[33mitem-db     |[0m 2024-02-21T04:49:58.723+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+[33mitem-db     |[0m 2024-02-21T04:49:58.723+0000 I CONTROL  [initandlisten] 
+[33mitem-db     |[0m 2024-02-21T04:49:58.724+0000 I STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: f85655e7-4d10-4b8a-89b5-a2e04a6f69e1
+[33mitem-db     |[0m 2024-02-21T04:49:58.756+0000 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.6
+[33mitem-db     |[0m 2024-02-21T04:49:58.757+0000 I STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 25e3a556-1716-4fc2-b436-f0e875bfd2eb
+[33mitem-db     |[0m 2024-02-21T04:49:58.915+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[33mitem-db     |[0m 2024-02-21T04:49:58.917+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
+[33mitem-db     |[0m 2024-02-21T04:49:58.917+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
+[33mitem-db     |[0m 2024-02-21T04:49:58.917+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+[33mitem-db     |[0m 2024-02-21T04:49:58.917+0000 I STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with generated UUID: 4e6bff21-8d06-4565-b5b2-cd5131781a1c
+[33mitem-db     |[0m 2024-02-21T04:49:58.991+0000 I INDEX    [LogicalSessionCacheRefresh] build index on: config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 }
+[33mitem-db     |[0m 2024-02-21T04:49:58.991+0000 I INDEX    [LogicalSessionCacheRefresh] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+[33mitem-db     |[0m 2024-02-21T04:49:59.009+0000 I INDEX    [LogicalSessionCacheRefresh] build index done.  scanned 0 total records. 0 secs
+[33mitem-db     |[0m 2024-02-21T04:50:01.592+0000 I NETWORK  [listener] connection accepted from 172.18.0.3:57328 #1 (1 connection now open)
+[33mitem-db     |[0m 2024-02-21T04:50:01.611+0000 I NETWORK  [conn1] received client metadata from 172.18.0.3:57328 conn1: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "5.18.0-kali5-amd64" }, platform: "Node.js v14.21.3, LE, mongodb-core: 2.1.20" }
+[36mitem-app    |[0m 
+[36mitem-app    |[0m > docker-software-delivery@1.0.0 start /app
+[36mitem-app    |[0m > node ./bin/www
+[36mitem-app    |[0m 
+[36mitem-app    |[0m NODE_ENV: production
+[36mitem-app    |[0m Connected to database

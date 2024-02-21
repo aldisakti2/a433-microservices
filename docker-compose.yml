@@ -9,12 +9,7 @@ services:
 
     #Deklarasi Nama Container
     container_name: item-app
-
-    #Spesifikasi Informasi Build Image bila Image yang dipakai belum tersedia
-    build:
-      #Context lokasi Dockerfile berada di direktori saat ini
-      context: .
-
+    
     #Docker Image yang digunakan
     image: ghcr.io/aldisakti2/item-app:v1
 
@@ -38,9 +33,9 @@ services:
     #Docker Image yang digunakan
     image: mongo:3
 
-    #Publish Port 27017 di container ke Port 27017 (External)
+    #Publish Port 27017 di container ke Port 27019 (External)
     ports:
-      - "27017:27017"
+      - "27019:27017"
 
     #Bind Mount Docker Volume bernama "app-db" ke direktor "/data/db" di container
     volumes:

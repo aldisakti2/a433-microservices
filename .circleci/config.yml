@@ -17,6 +17,9 @@ jobs:
       #Mendapatkan data dari repository
       - checkout
 
+      #Menggunakan remote docker agar dapat menggunakan docker cli
+      - setup_remote_docker
+
       #Perintah shell yang dijalankan
       - run:
 
@@ -63,7 +66,7 @@ jobs:
       #Mendapatkan data dari repository
       - checkout
 
-      #Menggunakan remote docker agar dapat build dan push Docker Image
+      #Menggunakan remote docker agar dapat menggunakan docker cli
       - setup_remote_docker
 
       #Perintah shell yang dijalankan

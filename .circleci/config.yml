@@ -21,7 +21,7 @@ jobs:
           name: Build and Push KarsaJobs UI Docker Image
           command: |
             docker build -t ghcr.io/aldisakti2/karsajobs-ui:latest .
-            echo $PW_TOKEN | docker login ghcr.io -u aldisakti2 --pasword-stdin
+            echo $PW_TOKEN | docker login ghcr.io -u aldisakti2 --password-stdin
             docker push ghcr.io/aldisakti2/karsajobs-ui:latest
 
 workflows:

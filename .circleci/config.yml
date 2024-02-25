@@ -30,3 +30,11 @@ jobs:
           command: |
             docker build -t ghcr.io/aldisakti2/karsajobs:latest .
             docker push ghcr.io/aldisakti2/karsajobs:latest
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - lint-dockerfile
+      - test-app
+      - build-app-karsajobs

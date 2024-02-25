@@ -1,32 +1,79 @@
+#Version Syntax
 version: 2.1
+
+#Circle CI Jobs 
 jobs:
+
+  #Jobs Bernama "lint-dockerfile"
   lint-dockerfile:
+
+    #Menggunakan docker image "docker:latest"
     docker:
       - image: docker:latest
+
+    #Langkah - langkah yang dilakukan pada jobs ini
     steps:
+
+      #Mendapatkan data dari repository
       - checkout
+
+      #Menggunakan remote docker agar dapat menggunakan docker cli
       - setup_remote_docker
+
+      #Perintah shell yang dijalankan
       - run:
+
+          #Nama Perintah (Hanya Untuk Nama Pengenal Saja)
           name: Lint KarsaJobs UI Dockerfile
+
+          #Command akan menjalankan hadolint docker container kemudian melakukan "linting" terhadapa file Dockerfile
           command: |
             docker run --rm --interactive hadolint/hadolint < Dockerfile
 
+  #Jobs bernama "build-app-karsajobs-ui"
   build-app-karsajobs-ui:
+
+    #Menggunakan docker image "docker:latest"
     docker:
       - image: docker:latest
+
+    #Langkah - langkah yang dilakukan pada jobs ini
     steps:
+
+      #Mendapatkan data dari repository
       - checkout
+
+      #Menggunakan remote docker agar dapat menggunakan docker cli
       - setup_remote_docker
+
+      #Perintah shell yang dijalankan
       - run:
+          
+          #Nama Perintah (Hanya Untuk Nama Pengenal Saja)
           name: Build and Push KarsaJobs UI Docker Image
+
+          #Command akan melakukan proses build dan push docker image
           command: |
+
+            #Build Docker Image
             docker build -t ghcr.io/aldisakti2/karsajobs-ui:latest .
+
+            #Login ke Github Packages
             echo $PW_TOKEN | docker login ghcr.io -u aldisakti2 --password-stdin
+
+            #Push Docker Image
             docker push ghcr.io/aldisakti2/karsajobs-ui:latest
 
+#Circle CI Workflow
 workflows:
+
+  #Workflow version
   version: 2
+
+  #Jobs apa saja yang akan di build
   build:
+
+    #Jobs yang dijalankan
     jobs:
       - lint-dockerfile
       - build-app-karsajobs-ui

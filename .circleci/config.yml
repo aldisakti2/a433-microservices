@@ -1,0 +1,32 @@
+version: 2.1
+jobs:
+  lint-dockerfile:
+    docker:
+      - image: hadolint/hadolint:latest
+    steps:
+      - run:
+          name: Lint Dockerfile
+          command: |
+            hadolint Dockerfile
+
+  test-app:
+    docker:
+      - image: golang:latest
+    steps:
+      - checkout
+      - run:
+          name: Run Unit Tests
+          command: |
+            go test -v -short --count=1 $(go list ./...)
+
+  build-app-karsajobs:
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build and Push Docker Image
+          command: |
+            docker build -t ghcr.io/aldisakti2/karsajobs:latest .
+            docker push ghcr.io/aldisakti2/karsajobs:latest

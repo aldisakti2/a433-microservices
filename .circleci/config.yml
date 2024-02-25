@@ -2,13 +2,14 @@ version: 2.1
 jobs:
   lint-dockerfile:
     docker:
-      - image: hadolint/hadolint
+      - image: docker:latest
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Lint KarsaJobs Dockerfile
           command: |
-            hadolint Dockerfile
+            docker run --rm --interactive hadolint/hadolint < Dockerfile
 
   test-app:
     docker:
